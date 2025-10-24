@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# P2P Auction
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A peer-to-peer auction platform built with React, TypeScript, and Vite, utilizing Hyperswarm for decentralized networking.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend**: React 19 + TypeScript
+- **Build Tool**: Vite
+- **State Management**: Redux Toolkit
+- **P2P Networking**: Hyperswarm, Hyperdrive, Corestore
+- **Forms**: Formik + Yup
+- **Styling**: Tailwind CSS
+- **Testing**: Vitest + Happy DOM
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+```bash
+# Run development server
+yarn dev
 
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+# Run with Pear runtime
+yarn pear:dev .
 ```
+
+### Testing
+
+```bash
+# Run tests in watch mode
+yarn test
+
+# Run tests once
+yarn test:run
+
+# Run tests with UI
+yarn test:ui
+```
+
+### Build
+
+```bash
+# Build for production
+yarn build
+
+# Build and watch for changes
+yarn build:watch
+```
+
+## Project Structure
+
+- `/src/components` - React components (auction, forms, shared)
+- `/src/store` - Redux store (auction, bid, user slices)
+- `/src/helpers` - Utility functions
+- `/src/pages` - Page components
+- `/src/providers` - Context providers
+
+## Testing
+
+This project uses Vitest for unit testing with Happy DOM as the test environment.
+
+### Writing Tests
+
+Test files should be placed next to the files they test with a `.test.ts` or `.test.tsx` extension.
+
+Example:
+
+```
+src/helpers/auctionHelper.ts
+src/helpers/auctionHelper.test.ts
+```
+
+### Test Coverage
+
+- ✅ Auction helper functions (22 tests)
+
+## Linting
+
+```bash
+yarn lint
+```
+
+## Additional Configuration
+
+For production applications, consider enabling type-aware ESLint rules by updating `eslint.config.js` with `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`.
