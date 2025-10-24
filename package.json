@@ -1,0 +1,71 @@
+{
+  "name": "p2p-auction",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.html",
+  "pear": {
+    "type": "desktop",
+    "gui": {
+      "width": 1280,
+      "height": 800,
+      "fullScreen": true
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "build:watch": "vite build --watch",
+    "pear:run": "pear run --dev .",
+    "pear:dev": "npm-run-all -p build:watch pear:run",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.9.1",
+    "b4a": "^1.7.3",
+    "corestore": "^7.5.0",
+    "formik": "^2.4.6",
+    "hypercore-crypto": "^3.6.1",
+    "hyperdrive": "^13.0.2",
+    "hyperswarm": "^4.14.2",
+    "protomux": "^3.10.1",
+    "protomux-rpc": "^1.7.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-redux": "^9.2.0",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@types/node": "^24.6.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "@vitest/ui": "^4.0.2",
+    "autoprefixer": "^10.4.21",
+    "browserify-fs": "^1.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "happy-dom": "^20.0.8",
+    "npm-run-all": "^4.1.5",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "postcss": "^8.5.6",
+    "stream-browserify": "^3.0.0",
+    "tailwindcss": "^4.1.14",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.45.0",
+    "util": "^0.12.5",
+    "vite": "^7.1.7",
+    "vitest": "2.1.8"
+  }
+}
